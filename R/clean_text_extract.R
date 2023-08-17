@@ -1,12 +1,11 @@
 #' This is a wrapper around a thing that i trouble shot
 #' @description
-#' This function makes use of extract. This is for the most part a backup for the heavylifter
-#'
-#' @param df is a tibble or data.frame that is the result of extract json
-#' @param our_pattern is a regular expression to capture texts
-#'@export
+#' This function uses  extract this should be used if you can't find a regex that works
+#' @param df this is a df or tibble
+#' @param our_pattern this is a regex defaults to bodytext
+#' @export
 
-cleaning_text_columns_match = function(df,  our_pattern = "<bodyText>.*?<p.*?>(.*?)</p>.*?</bodyText>"){
+cleaning_text_columns_extract = function(df,  our_pattern = "<bodyText>.*?<p.*?>(.*?)</p>.*?</bodyText>"){
   our_pattern = rlang::englue("{our_pattern}")
 
   ln_df = df |>
@@ -27,5 +26,6 @@ cleaning_text_columns_match = function(df,  our_pattern = "<bodyText>.*?<p.*?>(.
 
   return(clean_ln_df)
 }
+
 
 #' @export
