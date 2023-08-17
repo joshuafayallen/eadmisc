@@ -2,7 +2,7 @@
 % Please edit documentation in R/clean_text_extract.R, R/clean_text_match.R
 \name{cleaning_text_columns_match}
 \alias{cleaning_text_columns_match}
-\title{Cleaner for the text stuff}
+\title{This is a wrapper around a thing that i trouble shot}
 \usage{
 cleaning_text_columns_match(
   df,
@@ -22,8 +22,7 @@ cleaning_text_columns_match(
 \item{our_pattern}{is a regular expression to capture texts}
 }
 \description{
-This function makes use of str_match. This is probably the function that will
-the heavy lifting
+This function makes use of extract. This is for the most part a backup for the heavylifter
 
 This function makes use of str_match. This is probably the function that will
 the heavy lifting

@@ -1,6 +1,7 @@
+#' This is a wrapper around a thing that i trouble shot
 #' @description
-#' This function makes use of str_match. This is probably the function that will
-#' the heavy lifting
+#' This function makes use of extract. This is for the most part a backup for the heavylifter
+#'
 #' @param df is a tibble or data.frame that is the result of extract json
 #' @param our_pattern is a regular expression to capture texts
 #'@export
