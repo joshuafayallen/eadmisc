@@ -10,17 +10,17 @@ cleaning_text_columns_match = function(df,  our_pattern = "<bodyText>.*?<p.*?>(.
 
   ln_df = df |>
     dplyr::mutate(extract = stringr::str_extract_all(Content, our_pattern),
-           Text = extract[,2]) |>
+           Text = extract) |>
     dplyr::select(-starts_with("extract"))
 
   clean_ln_df = ln_df |>
-    dplyr::mutate(art_id = paste(Source, Date, seq(1:nrow(df)), sep = "_")) |>
+    dplyr::mutate(art_id = paste(Source, Date, dplyr::row_number(), sep = "_")) |>
     dplyr::mutate(Text = stringr::str_remove(Text, "</p><p nitf:lede=\"true\">")) |>
     tidyr::separate_rows(Text, sep = "</p><p>") |>
     dplyr::mutate(Text = textutils::HTMLdecode(Text))  |>
     dplyr::mutate(Text = stringr::str_replace_all(Text, "<.*?>", " "),
            characters = nchar(Text),
-           par_id = paste(art_id, seq(1:nrow(ln_df)), sep ="_"))
+           par_id = paste(art_id,dplyr::row_number(), sep ="_"))
 
 
 
