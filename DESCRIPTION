@@ -18,3 +18,4 @@ imports:
   jsonlite
   rjson
   rlang
+RoxygenNote: 7.2.3
