@@ -15,7 +15,6 @@ cleaning_text_columns_match = function(df,  our_pattern = "<bodyText>.*?<p.*?>(.
 
   clean_ln_df = ln_df |>
     dplyr::mutate(art_id = paste(Source, Date, seq(1:nrow(df)), sep = "_")) |>
-    dplyr::filter(!stringr::str_detect(Section, "Letters")) |>
     dplyr::mutate(Text = stringr::str_remove(Text, "</p><p nitf:lede=\"true\">")) |>
     tidyr::separate_rows(Text, sep = "</p><p>") |>
     dplyr::mutate(Text = textutils::HTMLdecode(Text))  |>
